@@ -64,7 +64,7 @@ export default SignUpScreen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#18122B',
+    backgroundColor: '#ffffffff',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
@@ -75,18 +75,28 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderRadius: 55,
     backgroundColor: '#fff',
+    borderWidth: 2,
+    borderColor: '#b39ddb',
   },
   title: {
     fontSize: 26,
-    color: '#b39ddb',
+    color: '#372655ff',
     fontWeight: 'bold',
     marginBottom: 24,
     fontFamily: 'Avenir',
     textAlign: 'center',
+    letterSpacing: 1,
   },
   form: {
     width: '100%',
     alignItems: 'center',
+    backgroundColor: '#22203a',
+    borderRadius: 18,
+    padding: 20,
+    shadowColor: '#7c43bd',
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 2,
   },
   signinText: {
     color: '#b39ddb',

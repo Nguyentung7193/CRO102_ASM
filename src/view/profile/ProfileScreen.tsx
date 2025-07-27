@@ -17,8 +17,8 @@ const ProfileScreen = ({navigation}: Props) => {
     <ScrollView style={styles.container}>
       <ProfileHeader
         avatarUrl="https://i.pravatar.cc/150?img=3"
-        name="Nguyễn Văn A"
-        email="nguyenvana@example.com"
+        name="Nguyễn Xuân Tùng"
+        email="nguyentung260310@gmail.com"
       />
 
       <View style={styles.optionContainer}>
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    paddingTop: 50,
   },
   optionContainer: {
     padding: 16,

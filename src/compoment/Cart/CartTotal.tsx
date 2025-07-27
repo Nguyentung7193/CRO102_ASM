@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   checkoutBtn: {
-    backgroundColor: '#2E86DE',
+    backgroundColor: '#3d2483ff',
     paddingVertical: 12,
     borderRadius: 8,
     alignItems: 'center',

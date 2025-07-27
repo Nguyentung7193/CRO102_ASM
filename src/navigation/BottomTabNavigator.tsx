@@ -8,7 +8,6 @@ import ProfileScreen from '../view/profile/ProfileScreen';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ProductScreen from '../view/products/ProductScreen';
 
-
 export type BottomTabParamList = {
   Home: undefined;
   Cart: undefined;
@@ -23,7 +22,7 @@ const BottomTabNavigator = () => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarActiveTintColor: '#007bff',
+        tabBarActiveTintColor: '#4a227eff',
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
           backgroundColor: 'white',
@@ -39,12 +38,12 @@ const BottomTabNavigator = () => {
 
           if (route.name === 'Home') {
             iconName = focused ? 'home' : 'home-outline';
+          } else if (route.name === 'Product') {
+            iconName = focused ? 'pricetag' : 'pricetag-outline';
           } else if (route.name === 'Cart') {
             iconName = focused ? 'cart' : 'cart-outline';
           } else if (route.name === 'Profile') {
             iconName = focused ? 'person' : 'person-outline';
-          } else if (route.name === 'Product') {
-            iconName = focused ? 'pricetag' : 'pricetag-outline';
           }
 
           return <Icon name={iconName} size={22} color={color} />;
@@ -52,9 +51,9 @@ const BottomTabNavigator = () => {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Product" component={ProductScreen} />
       <Tab.Screen name="Cart" component={CartScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
-      <Tab.Screen name="Product" component={ProductScreen} />
 
     </Tab.Navigator>
   );

@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 16,
     alignItems: 'center',
-    backgroundColor: '#2E86DE',
+    backgroundColor: '#661f99ff',
   },
   avatar: {
     width: 64,

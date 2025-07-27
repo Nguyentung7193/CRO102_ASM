@@ -22,14 +22,14 @@ const CartScreen = () => {
       name: 'Giày Sneaker Nike',
       price: 1500000,
       quantity: 1,
-      image: 'https://i.imgur.com/UGRyo0p.jpg',
+      image: 'https://static1.srcdn.com/wordpress/wp-content/uploads/2022/04/Genshin-Impact-Raiden-Shogun-art.png',
     },
     {
       id: '2',
       name: 'Áo Thun Local Brand',
       price: 350000,
       quantity: 2,
-      image: 'https://i.imgur.com/dz2fEMV.jpg',
+      image: 'https://file.hstatic.net/200000722513/article/gearvn-cung-menh-nao-manh-cho-raiden-shogun-genshin-impact-1_402b38e8848f4b0c963a3f8efe1813d8.jpg',
     },
   ]);
 
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingTop: 0,
+    paddingTop: 20,
   },
   header: {
     flexDirection: 'row',
@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     backgroundColor: '#fff',
     justifyContent: 'space-between',
+
   },
   headerIcon: {
     width: 32,

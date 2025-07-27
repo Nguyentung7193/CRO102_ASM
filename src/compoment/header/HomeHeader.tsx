@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 16,
     backgroundColor: '#fff',
+    paddingTop: 40,
   },
   leftContainer: {
     flexDirection: 'row',
