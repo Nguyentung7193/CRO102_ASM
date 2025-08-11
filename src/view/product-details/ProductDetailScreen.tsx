@@ -1,36 +1,56 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // src/screens/ProductDetailScreen.tsx
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ActivityIndicator, Alert } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import ProductImageCarousel from '../../compoment/Item/ProductImageCarousel';
 import AddToCartButton from '../../compoment/Button/AddToCartButton';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { RootStackParamList } from '../../navigation/StackNavigator';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { getProductDetail } from '../../action/product/productAction';
+import { useAppDispatch, useAppSelector } from '../../hook';
+import { addProductToCart, clearAllCart } from '../../action/cart/cartAction';
 
 type ProductDetailRouteProp = RouteProp<{ params: { id: string } }, 'params'>
 type Props = NativeStackScreenProps<RootStackParamList, 'ProductDetailScreen'>;
 
-const fakeProduct = {
-  id: '1',
-  name: 'Áo thun Anime',
-  price: 199000,
-  description: 'Áo thun chủ đề Anime, chất liệu cotton, thiết kế trẻ trung, năng động.',
-  images: [
-    'https://i.pinimg.com/736x/39/46/8a/39468ac90c926e50d1899a0f19315ef1.jpg',
-    'https://m.media-amazon.com/images/I/61CxvgRkXJL._UF1000,1000_QL80_.jpg',
-    'https://gamek.mediacdn.vn/133514250583805952/2021/9/4/image-1630774738048640107230.png',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz52XAlb5LVmOhXXfwjIelwfO7gJ53FdifpQ&s'
-  ],
-};
-
 const ProductDetailScreen = ({navigation} : Props) => {
   const route = useRoute<ProductDetailRouteProp>();
   const { id } = route.params;
+  const dispatch = useAppDispatch();
+  console.log('Product ID:', id);
 
-  // Lấy thông tin fake theo id (ở đây luôn trả về fakeProduct)
-  const product = fakeProduct;
+  // Lấy product detail từ redux state
+  const product = useAppSelector(state =>
+    state.product.listProducts.find(p => p.id === id)
+  );
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchDetail = async () => {
+      setLoading(true);
+      await dispatch(getProductDetail(id));
+      setLoading(false);
+    };
+    fetchDetail();
+  }, [id, dispatch]);
+
+  // Thêm vào giỏ hàng
+  const handleAddToCart = () => {
+    if (product) {
+      dispatch(addProductToCart(product.id, 1));
+      Alert.alert('Thành công', 'Đã thêm sản phẩm vào giỏ hàng!');
+    }
+  };
+
+  if (loading || !product) {
+    return (
+      <View style={[styles.wrapper, { justifyContent: 'center', alignItems: 'center' }]}>
+        <ActivityIndicator size="large" color="#7c43bd" />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.wrapper}>
@@ -44,13 +64,13 @@ const ProductDetailScreen = ({navigation} : Props) => {
         </TouchableOpacity>
       </View>
       <ScrollView style={styles.container}>
-        <ProductImageCarousel images={product.images} />
+        <ProductImageCarousel images={[product.image]} />
         <View style={styles.infoContainer}>
-          <Text style={styles.name}>{product.name}</Text>
+          <Text style={styles.name}>{product.title}</Text>
           <Text style={styles.price}>{product.price.toLocaleString()} ₫</Text>
           <Text style={styles.description}>{product.description}</Text>
         </View>
-        <AddToCartButton productId={product.id} />
+        <AddToCartButton onPress={handleAddToCart}/>
       </ScrollView>
     </View>
   );

@@ -1,0 +1,209 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "username": "tung",
+      "password": "123"
+    }
+  ],
+  "products": [
+    {
+      "id": "a",
+      "title": "Laptop Dell",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "20.000.000đ"
+    },
+    {
+      "id": "b",
+      "title": "iPhone 13",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "18.000.000đ"
+    },
+    {
+      "id": "c",
+      "title": "Tai nghe Sony",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "2.500.000đ"
+    },
+    {
+      "id": "d",
+      "title": "Máy ảnh Canon",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "15.000.000đ"
+    },
+    {
+      "id": "e",
+      "title": "Smartwatch Samsung",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "5.000.000đ"
+    },
+    {
+      "id": "f",
+      "title": "Balo thời trang",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "1.200.000đ"
+    },
+    {
+      "id": "g",
+      "title": "Áo khoác nam",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "800.000đ"
+    },
+    {
+      "id": "h",
+      "title": "Quần jeans nữ",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "600.000đ"
+    },
+    {
+      "id": "i",
+      "title": "Giày cao gót",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "1.500.000đ"
+    },
+    {
+      "id": "j",
+      "title": "Đồng hồ Casio",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "3.000.000đ"
+    },
+    {
+      "id": "k",
+      "title": "Sách học tiếng Anh",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "200.000đ"
+    },
+    {
+      "id": "l",
+      "title": "Bộ đồ chơi Lego",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "1.000.000đ"
+    },
+    {
+      "id": "m",
+      "title": "Máy xay sinh tố",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "700.000đ"
+    },
+    {
+      "id": "n",
+      "title": "Bộ nồi inox",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "1.800.000đ"
+    },
+    {
+      "id": "o",
+      "title": "Bàn phím cơ",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "1.200.000đ"
+    },
+    {
+      "id": "p",
+      "title": "Chuột gaming",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "800.000đ"
+    },
+    {
+      "id": "q",
+      "title": "Loa Bluetooth",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "1.500.000đ"
+    },
+    {
+      "id": "r",
+      "title": "Máy lọc không khí",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "2.000.000đ"
+    },
+    {
+      "id": "s",
+      "title": "Bộ dụng cụ làm bếp",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "1.000.000đ"
+    },
+    {
+      "id": "t",
+      "title": "Gối cao su non",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "300.000đ"
+    },
+    {
+      "id": "u",
+      "title": "Thảm tập yoga",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "400.000đ"
+    },
+    {
+      "id": "v",
+      "title": "Bình giữ nhiệt",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "250.000đ"
+    },
+    {
+      "id": "w",
+      "title": "Bộ cọ trang điểm",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "150.000đ"
+    },
+    {
+      "id": "x",
+      "title": "Son môi",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "200.000đ"
+    },
+    {
+      "id": "y",
+      "title": "Kem chống nắng",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "300.000đ"
+    },
+    {
+      "id": "z",
+      "title": "Nước hoa nam",
+      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
+      "price": "1.500.000đ"
+    },
+    {
+      "id": 1754879394007,
+      "title": "Test 1",
+      "description": "123",
+      "price": 12222,
+      "image": "12"
+    }
+  ],
+  "carts": [
+    {
+      "id": "2931",
+      "productId": "a",
+      "quantity": 1
+    },
+    {
+      "id": "28c7",
+      "productId": "a",
+      "quantity": 1
+    },
+    {
+      "id": "b2cd",
+      "productId": "d",
+      "quantity": 1
+    }
+  ],
+  "orders": [
+    {
+      "id": "1754876824051",
+      "items": [
+        {
+          "productId": "a",
+          "quantity": 1
+        },
+        {
+          "productId": "d",
+          "quantity": 1
+        }
+      ],
+      "total": 35000000,
+      "createdAt": "2025-08-11T01:47:04.051Z",
+      "status": "cancelled"
+    }
+  ]
+}

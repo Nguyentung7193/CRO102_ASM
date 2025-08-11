@@ -1,19 +1,15 @@
 // src/components/CartItem.tsx
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { CartItemProduct } from '../../types/product';
 
 interface Props {
-  product: {
-    id: string;
-    name: string;
-    price: number;
-    quantity: number;
-    image: string;
-  };
-  onQuantityChange: (id: string, newQty: number) => void;
+  product: CartItemProduct;
+  onQuantityChange: (newQty: number) => void;
+  onRemove: () => void;
 }
 
-const CartItem: React.FC<Props> = ({ product, onQuantityChange }) => {
+const CartItem: React.FC<Props> = ({ product, onQuantityChange, onRemove }) => {
   return (
     <View style={styles.container}>
       <Image source={{ uri: product.image }} style={styles.image} />
@@ -22,14 +18,17 @@ const CartItem: React.FC<Props> = ({ product, onQuantityChange }) => {
         <Text style={styles.price}>{product.price.toLocaleString()}đ</Text>
         <View style={styles.qtyContainer}>
           <TouchableOpacity
-            onPress={() => onQuantityChange(product.id, Math.max(1, product.quantity - 1))}>
+            onPress={() => onQuantityChange(Math.max(1, product.quantity - 1))}>
             <Text style={styles.qtyBtn}>-</Text>
           </TouchableOpacity>
           <Text style={styles.qtyText}>{product.quantity}</Text>
-          <TouchableOpacity onPress={() => onQuantityChange(product.id, product.quantity + 1)}>
+          <TouchableOpacity onPress={() => onQuantityChange(product.quantity + 1)}>
             <Text style={styles.qtyBtn}>+</Text>
           </TouchableOpacity>
         </View>
+        <TouchableOpacity onPress={onRemove}>
+          <Text style={styles.removeBtn}>Remove</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -77,5 +76,10 @@ const styles = StyleSheet.create({
   qtyText: {
     fontSize: 16,
     marginHorizontal: 8,
+  },
+  removeBtn: {
+    marginTop: 8,
+    color: 'red',
+    textAlign: 'center',
   },
 });

@@ -1,49 +1,57 @@
 // src/screens/CartScreen.tsx
-import React, { useState } from 'react';
-import { View, FlatList, StyleSheet, Text, Alert, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { View, FlatList, Text, TouchableOpacity, Alert, StyleSheet } from 'react-native';
+import { useAppDispatch, useAppSelector } from '../../hook';
+import { updateCartItemQuantity, removeProductFromCart, clearAllCart } from '../../action/cart/cartAction';
+import { createNewOrder } from '../../action/order/orderAction';
 import CartItem from '../../compoment/Cart/CartItem';
 import CartTotal from '../../compoment/Cart/CartTotal';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { useNavigation } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../navigation/StackNavigator';
+import { CartItemProduct } from '../../types/product';
+type Props = NativeStackScreenProps<RootStackParamList, 'CartScreen'>;
+const CartScreen = ({navigation}: Props) => {
+  const dispatch = useAppDispatch();
+  const cartItems = useAppSelector(state => state.cart.items);
+  const listProducts = useAppSelector(state => state.product.listProducts);
 
-interface Product {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-}
+  // Tính tổng tiền
+  const total = cartItems.reduce((sum, item) => {
+    const product = listProducts.find(p => p.id === item.productId);
+    const price = product ? Number(product.price.toString().replace(/\D/g, '')) : 0;
+    return sum + price * item.quantity;
+  }, 0);
 
-const CartScreen = () => {
-  const navigation = useNavigation();
-  const [cartItems, setCartItems] = useState<Product[]>([
-    {
-      id: '1',
-      name: 'Giày Sneaker Nike',
-      price: 1500000,
-      quantity: 1,
-      image: 'https://static1.srcdn.com/wordpress/wp-content/uploads/2022/04/Genshin-Impact-Raiden-Shogun-art.png',
-    },
-    {
-      id: '2',
-      name: 'Áo Thun Local Brand',
-      price: 350000,
-      quantity: 2,
-      image: 'https://file.hstatic.net/200000722513/article/gearvn-cung-menh-nao-manh-cho-raiden-shogun-genshin-impact-1_402b38e8848f4b0c963a3f8efe1813d8.jpg',
-    },
-  ]);
-
-  const handleQuantityChange = (id: string, newQty: number) => {
-    setCartItems(prev =>
-      prev.map(item => (item.id === id ? { ...item, quantity: newQty } : item))
-    );
+  // Sửa số lượng
+  const handleQuantityChange = async (productId: string, newQty: number) => {
+    if (newQty < 1) {
+      dispatch(removeProductFromCart(productId));
+    } else {
+      dispatch(updateCartItemQuantity(productId, newQty));
+    }
   };
 
-  const handleCheckout = () => {
-    Alert.alert('Thông báo', 'Chuyển đến màn hình thanh toán...');
+  // Xóa toàn bộ giỏ hàng
+  const handleClearCart = () => {
+    dispatch(clearAllCart());
   };
 
-  const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  // Thanh toán
+  const handleCheckout = async () => {
+    if (cartItems.length === 0) {
+      Alert.alert('Giỏ hàng trống', 'Vui lòng thêm sản phẩm vào giỏ hàng!');
+      return;
+    }
+
+    try {
+      await dispatch(createNewOrder(cartItems, total));
+      Alert.alert('Thành công', 'Đơn hàng đã được tạo!');
+      navigation.navigate('HomeScreen');
+    } catch (error) {
+      Alert.alert('Lỗi', 'Không thể tạo đơn hàng. Vui lòng thử lại!');
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -58,14 +66,31 @@ const CartScreen = () => {
 
       <FlatList
         data={cartItems}
-        keyExtractor={item => item.id}
-        renderItem={({ item }) => (
-          <CartItem product={item} onQuantityChange={handleQuantityChange} />
-        )}
+        keyExtractor={item => item.productId}
+        renderItem={({ item }) => {
+          const product = listProducts.find(p => p.id === item.productId);
+          if (!product) return null;
+          
+          const cartItemProduct: CartItemProduct = {
+            ...product,
+            name: product.title,  // Map title to name
+            quantity: item.quantity
+          };
+          
+          return (
+            <CartItem
+              product={cartItemProduct}
+              onQuantityChange={(newQty) => handleQuantityChange(item.productId, newQty)}
+              onRemove={() => dispatch(removeProductFromCart(item.productId))}
+            />
+          );
+        }}
         contentContainerStyle={styles.list}
       />
-
       <CartTotal total={total} onCheckout={handleCheckout} />
+      <TouchableOpacity onPress={handleClearCart} style={{ margin: 16 }}>
+        <Text style={{ color: '#7c43bd', fontWeight: 'bold', textAlign: 'center' }}>Xóa giỏ hàng</Text>
+      </TouchableOpacity>
     </View>
   );
 };

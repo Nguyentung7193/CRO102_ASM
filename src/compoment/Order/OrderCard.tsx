@@ -1,14 +1,10 @@
 // src/components/OrderCard.tsx
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { OrderCardItem } from '../../types/order';
 
 interface OrderCardProps {
-  order: {
-    id: string;
-    date: string;
-    total: number;
-    status: 'pending' | 'completed' | 'cancelled';
-  };
+  order: OrderCardItem;
   onPress?: () => void; // thêm option onPress
 }
 

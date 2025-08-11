@@ -9,17 +9,26 @@ import CartScreen from '../view/cart/CartScreen';
 import ProfileScreen from '../view/profile/ProfileScreen';
 import OrderHistoryScreen from '../view/order/OrderHistoryScreen';
 import OrderDetailScreen from '../view/order/OrderDetailScreen';
+import ProductListScreen from '../view/product/ProductListScreen';
+import ProductAddScreen from '../view/product/ProductAddScreen';
+import EditOrderScreen from '../view/order/EditOrderScreen';
+import { Order } from '../types/order';
 
 export type RootStackParamList = {
   Main: undefined;
   SignInScreen: undefined;
   SignUpScreen: undefined;
   HomeScreen: undefined;
-  ProductDetailScreen: { productId: string };
+  ProductDetailScreen: { id: string };
   CartScreen: undefined;
   ProfileScreen: undefined;
   OrderHistoryScreen: undefined;
   OrderDetailScreen: { orderId: string };
+
+  ProductListScreen: undefined;
+  ProductAddScreen: undefined;
+  EditOrderScreen: { order: Order };
+  AddProductScreen: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -39,6 +48,10 @@ const StackNavigator = () => {
       <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
       <Stack.Screen name="OrderHistoryScreen" component={OrderHistoryScreen} />
       <Stack.Screen name="OrderDetailScreen" component={OrderDetailScreen} />
+
+      <Stack.Screen name="ProductListScreen" component={ProductListScreen} />
+      <Stack.Screen name="ProductAddScreen" component={ProductAddScreen} />
+      <Stack.Screen name="EditOrderScreen" component={EditOrderScreen} />
     </Stack.Navigator>
   );
 };

@@ -3,17 +3,18 @@ import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, Alert } from 'react-native';
 
 interface Props {
-  productId: string;
+  productId?: string;
+  onPress?: () => void;
 }
 
-const AddToCartButton: React.FC<Props> = ({ productId }) => {
+const AddToCartButton: React.FC<Props> = ({ productId, onPress }) => {
   const handleAddToCart = () => {
     // TODO: Call your API or context state here
     Alert.alert('Đã thêm vào giỏ hàng', `Sản phẩm ID: ${productId}`);
   };
 
   return (
-    <TouchableOpacity style={styles.button} onPress={handleAddToCart}>
+    <TouchableOpacity style={styles.button} onPress={onPress}>
       <Text style={styles.buttonText}>Thêm vào giỏ hàng</Text>
     </TouchableOpacity>
   );

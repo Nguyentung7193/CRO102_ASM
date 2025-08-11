@@ -1,21 +1,30 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { Product } from '../../reducers/product/productReducer';
+
 
 type Props = {
-  image: string;
-  title: string;
-  price: string;
+  product: Product;
   onPress?: () => void;
+  onedit?: (product: Product) => void;
+  ondelete?: (id: string) => void;
 };
 
-const ProductFeatureItem = ({ image, title, price, onPress }: Props) => {
+const ProductFeatureItem = ({ product, onPress, onedit, ondelete }: Props) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Image source={{ uri: image }} style={styles.image} />
+      <Image source={{ uri: product.image }} style={styles.image} />
       <View style={styles.info}>
-        <Text style={styles.title} numberOfLines={1}>{title}</Text>
-        <Text style={styles.price}>{price}</Text>
+        <Text style={styles.title} numberOfLines={1}>{product.title}</Text>
+        <Text style={styles.price}>{product.price}</Text>
       </View>
+      <TouchableOpacity onPress={() => {onedit && onedit(product)}} style={{ padding: 8 }}>
+        <Text style={{ color: '#FF0000' }}>edit</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => {ondelete && ondelete(product.id)}} style={{ padding: 8 }}>
+        <Text style={{ color: '#00FF00' }}>delete</Text>
+      </TouchableOpacity>
+    
     </TouchableOpacity>
   );
 };

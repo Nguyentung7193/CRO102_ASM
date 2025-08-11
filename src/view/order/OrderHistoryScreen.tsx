@@ -1,41 +1,23 @@
 // src/screens/OrderHistoryScreen.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { useAppDispatch, useAppSelector } from '../../hook';
+import { getOrders } from '../../action/order/orderAction';
 import OrderCard from '../../compoment/Order/OrderCard';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/StackNavigator';
+import { OrderCardItem } from '../../types/order';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'OrderHistoryScreen'>;
 
-interface Order {
-  id: string;
-  date: string;
-  total: number;
-  status: 'pending' | 'completed' | 'cancelled';
-}
-
 const OrderHistoryScreen = ({ navigation }: Props) => {
-  const orders: Order[] = [
-    {
-      id: 'DH123456',
-      date: '2025-07-21',
-      total: 1200000,
-      status: 'completed',
-    },
-    {
-      id: 'DH123457',
-      date: '2025-07-20',
-      total: 750000,
-      status: 'pending',
-    },
-    {
-      id: 'DH123458',
-      date: '2025-07-15',
-      total: 500000,
-      status: 'cancelled',
-    },
-  ];
+  const dispatch = useAppDispatch();
+  const orders = useAppSelector(state => state.order.orders);
+
+  useEffect(() => {
+    dispatch(getOrders());
+  }, [dispatch]);
 
   return (
     <View style={styles.container}>
@@ -50,12 +32,21 @@ const OrderHistoryScreen = ({ navigation }: Props) => {
       <FlatList
         data={orders}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <OrderCard
-            order={item}
-            onPress={() => navigation.navigate('OrderDetailScreen', { orderId: item.id })}
-          />
-        )}
+        renderItem={({ item }) => {
+          const orderCardItem: OrderCardItem = {
+            id: item.id,
+            date: new Date(item.createdAt).toLocaleDateString('vi-VN'),
+            total: item.total,
+            status: item.status
+          };
+          
+          return (
+            <OrderCard
+              order={orderCardItem}
+              onPress={() => navigation.navigate('OrderDetailScreen', { orderId: item.id })}
+            />
+          );
+        }}
         contentContainerStyle={styles.list}
       />
     </View>
