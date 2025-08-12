@@ -27,6 +27,7 @@ const ProductScreen = ({ navigation }: Props) => {
   useEffect(() => {
     dispatch(getListProduct());
   }, [dispatch]);
+  
 
   const [routes] = useState(
     categories.map((c) => ({ key: c.toLowerCase(), title: c })),

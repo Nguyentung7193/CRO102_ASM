@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 // src/screens/CartScreen.tsx
 import React from 'react';
 import { View, FlatList, Text, TouchableOpacity, Alert, StyleSheet } from 'react-native';
@@ -47,7 +48,7 @@ const CartScreen = ({navigation}: Props) => {
     try {
       await dispatch(createNewOrder(cartItems, total));
       Alert.alert('Thành công', 'Đơn hàng đã được tạo!');
-      navigation.navigate('HomeScreen');
+      navigation.navigate('Main');
     } catch (error) {
       Alert.alert('Lỗi', 'Không thể tạo đơn hàng. Vui lòng thử lại!');
     }

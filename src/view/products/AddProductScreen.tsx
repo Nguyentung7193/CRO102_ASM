@@ -25,6 +25,9 @@ const AddProductScreen = ({ navigation }: Props) => {
   const [price, setPrice] = useState('');
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('Áo');
+    const generateId = (): string => {
+    return `prod_${Date.now()}`;
+  };
 
   const handleSubmit = async () => {
     if (!title || !description || !price || !image) {
@@ -33,7 +36,7 @@ const AddProductScreen = ({ navigation }: Props) => {
     }
 
     const newProduct = {
-      id: Date.now().toString(),
+      id: generateId(),
       title,
       description,
       price: Number(price),

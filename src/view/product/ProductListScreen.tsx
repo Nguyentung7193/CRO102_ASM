@@ -30,9 +30,10 @@ const ProductListScreen = ({ navigation }: Props) => {
   const [visible, setVisible] = useState(false);
   const [editProduct, setEditProduct] = useState<Product | null>(null);
 
-  useEffect(() => {
+useEffect(() => {
     dispatch(getListProduct());
   }, [dispatch]);
+
   useFocusEffect(
     useCallback(() => {
       dispatch(getListProduct());
@@ -56,22 +57,30 @@ const ProductListScreen = ({ navigation }: Props) => {
         },
         {
           text: 'OK',
-          onPress: () => {
-            dispatch(deleteProduct(id));
+          onPress: async () => {
+            await dispatch(deleteProduct(id));
+          dispatch(getListProduct());
           },
         },
       ],
       { cancelable: false },
     );
   };
+const sortedProducts = [...listProduct].sort((a, b) => {
+  const idA = typeof a.id === 'string' ? parseFloat(a.id) : a.id;
+  const idB = typeof b.id === 'string' ? parseFloat(b.id) : b.id;
+
+  return idB - idA; // Compare as numbers
+});
 
   return (
     <View>
       <Text style={{ fontSize: 24, fontWeight: 'bold', margin: 20 }}>
-        Product List
+       Danh sách sản phẩm
       </Text>
+      <Button title="Add Product" onPress={handleAddProduct} />
       <FlatList
-        data={listProduct}
+        data={sortedProducts}
         keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
           <ProductFeatureItem
@@ -85,8 +94,8 @@ const ProductListScreen = ({ navigation }: Props) => {
             ondelete={handleDeleteProduct}
           />
         )}
+        contentContainerStyle={{ paddingBottom: 80 }}
       />
-      <Button title="Add" onPress={handleAddProduct} />
       <Modal visible={visible} animationType="slide">
         <View style={styles.container}>
           <Text style={{ fontSize: 24, fontWeight: 'bold', margin: 20 }}>

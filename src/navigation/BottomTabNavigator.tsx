@@ -7,6 +7,7 @@ import CartScreen from '../view/cart/CartScreen';
 import ProfileScreen from '../view/profile/ProfileScreen';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ProductScreen from '../view/products/ProductScreen';
+import ProductListScreen from '../view/product/ProductListScreen';
 
 export type BottomTabParamList = {
   Home: undefined;
@@ -51,7 +52,7 @@ const BottomTabNavigator = () => {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Product" component={ProductScreen} />
+      <Tab.Screen name="Product" component={ProductListScreen} />
       <Tab.Screen name="Cart" component={CartScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
 

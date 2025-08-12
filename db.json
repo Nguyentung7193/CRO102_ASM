@@ -32,12 +32,6 @@
       "price": "15.000.000đ"
     },
     {
-      "id": "e",
-      "title": "Smartwatch Samsung",
-      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
-      "price": "5.000.000đ"
-    },
-    {
       "id": "f",
       "title": "Balo thời trang",
       "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
@@ -152,23 +146,26 @@
       "price": "200.000đ"
     },
     {
-      "id": "y",
-      "title": "Kem chống nắng",
-      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
-      "price": "300.000đ"
+      "id": "1754967417596",
+      "title": "test1",
+      "description": "test2",
+      "price": 1000,
+      "image": "100"
     },
     {
-      "id": "z",
-      "title": "Nước hoa nam",
-      "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/genshin-impact-raiden-shogun-boss-fight-feature.jpg",
-      "price": "1.500.000đ"
+      "id": "1754968483462",
+      "title": "test1",
+      "description": "test2",
+      "price": 5000,
+      "image": "1"
     },
     {
-      "id": 1754879394007,
-      "title": "Test 1",
-      "description": "123",
-      "price": 12222,
-      "image": "12"
+      "id": "prod_1754969108695",
+      "title": "Test 5",
+      "description": "Test 5",
+      "price": 100000,
+      "image": "1000",
+      "category": "Quan"
     }
   ],
   "carts": [
@@ -185,6 +182,56 @@
     {
       "id": "b2cd",
       "productId": "d",
+      "quantity": 1
+    },
+    {
+      "id": "ff73",
+      "productId": "a",
+      "quantity": 1
+    },
+    {
+      "id": "0146",
+      "productId": "x",
+      "quantity": 1
+    },
+    {
+      "id": "58ed",
+      "productId": "prod_1754969108695",
+      "quantity": 1
+    },
+    {
+      "id": "22e8",
+      "productId": "b",
+      "quantity": 1
+    },
+    {
+      "id": "a792",
+      "productId": "d",
+      "quantity": 1
+    },
+    {
+      "id": "6bb8",
+      "productId": "g",
+      "quantity": 1
+    },
+    {
+      "id": "c8a1",
+      "productId": "g",
+      "quantity": 1
+    },
+    {
+      "id": "e64d",
+      "productId": "a",
+      "quantity": 1
+    },
+    {
+      "id": "e472",
+      "productId": null,
+      "quantity": 1
+    },
+    {
+      "id": "eccf",
+      "productId": "prod_1754969108695",
       "quantity": 1
     }
   ],
@@ -204,6 +251,150 @@
       "total": 35000000,
       "createdAt": "2025-08-11T01:47:04.051Z",
       "status": "cancelled"
+    },
+    {
+      "id": "1754967450647",
+      "items": [
+        {
+          "productId": "a",
+          "quantity": 1
+        }
+      ],
+      "total": 20000000,
+      "createdAt": "2025-08-12T02:57:30.647Z",
+      "status": "pending"
+    },
+    {
+      "id": "1754969141795",
+      "items": [
+        {
+          "productId": "x",
+          "quantity": 1
+        },
+        {
+          "productId": "prod_1754969108695",
+          "quantity": 1
+        }
+      ],
+      "total": 300000,
+      "createdAt": "2025-08-12T03:25:41.795Z",
+      "status": "pending"
+    },
+    {
+      "id": "1754969208344",
+      "items": [
+        {
+          "productId": "b",
+          "quantity": 1
+        },
+        {
+          "productId": "d",
+          "quantity": 1
+        },
+        {
+          "productId": "g",
+          "quantity": 1
+        }
+      ],
+      "total": 33800000,
+      "createdAt": "2025-08-12T03:26:48.344Z",
+      "status": "pending"
+    },
+    {
+      "id": "1754969217526",
+      "items": [
+        {
+          "productId": "b",
+          "quantity": 1
+        },
+        {
+          "productId": "d",
+          "quantity": 1
+        },
+        {
+          "productId": "g",
+          "quantity": 1
+        }
+      ],
+      "total": 33800000,
+      "createdAt": "2025-08-12T03:26:57.526Z",
+      "status": "pending"
+    },
+    {
+      "id": "1754969220143",
+      "items": [
+        {
+          "productId": "b",
+          "quantity": 1
+        },
+        {
+          "productId": "d",
+          "quantity": 1
+        },
+        {
+          "productId": "g",
+          "quantity": 1
+        }
+      ],
+      "total": 33800000,
+      "createdAt": "2025-08-12T03:27:00.143Z",
+      "status": "pending"
+    },
+    {
+      "id": "1754969234040",
+      "items": [
+        {
+          "productId": "b",
+          "quantity": 1
+        },
+        {
+          "productId": "d",
+          "quantity": 1
+        },
+        {
+          "productId": "g",
+          "quantity": 1
+        }
+      ],
+      "total": 33800000,
+      "createdAt": "2025-08-12T03:27:14.040Z",
+      "status": "pending"
+    },
+    {
+      "id": "1754969250048",
+      "items": [
+        {
+          "productId": "b",
+          "quantity": 1
+        },
+        {
+          "productId": "d",
+          "quantity": 1
+        },
+        {
+          "productId": "g",
+          "quantity": 1
+        }
+      ],
+      "total": 33800000,
+      "createdAt": "2025-08-12T03:27:30.048Z",
+      "status": "pending"
+    },
+    {
+      "id": "1754976537044",
+      "items": [
+        {
+          "productId": "a",
+          "quantity": 1
+        },
+        {
+          "productId": "prod_1754976503692",
+          "quantity": 1
+        }
+      ],
+      "total": 20000000,
+      "createdAt": "2025-08-12T05:28:57.044Z",
+      "status": "pending"
     }
   ]
 }

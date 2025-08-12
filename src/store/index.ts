@@ -7,8 +7,8 @@ import orderReducer from '../reducers/order/orderReducer';
 const store = configureStore({
     reducer: {
         product: productReducer,
-        cart: cartReducer, // Assuming you have a cartReducer
-        order: orderReducer, // Assuming you have an orderReducer
+        cart: cartReducer,
+        order: orderReducer,
     },
 });
 
